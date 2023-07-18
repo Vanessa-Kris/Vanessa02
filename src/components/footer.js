@@ -1,23 +1,42 @@
 import React from "react";
-import { MDBFooter, MDBContainer } from "mdb-react-ui-kit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
+import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
+import "../App.css";
 
 export default function Footer() {
   return (
-    <MDBFooter
-      className="text-center text-white"
-      style={{ backgroundColor: "#000" }}
+    <Box
+      className="footer"
+      component="Footer"
+      sx={{
+        p: 2,
+        color: "gray",
+      }}
     >
-      <MDBContainer className="p-4"></MDBContainer>
+      <Box>
+        <FontAwesomeIcon
+          icon={faFacebook}
+          style={{ padding: 5, marginRight: 10 }}
+        />
+        <FontAwesomeIcon
+          icon={faInstagram}
+          style={{ padding: 5, marginRight: 10 }}
+        />
+        <FontAwesomeIcon
+          icon={faTwitter}
+          style={{ padding: 5, marginRight: 10 }}
+        />
+      </Box>
 
-      <div
-        className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-      >
-        © 2020 Copyright:
-        <a className="text-white" href="https://mdbootstrap.com/">
-          vanessachris.com
-        </a>
-      </div>
-    </MDBFooter>
+      <Box>
+        <Typography>Vanessa Christopher 2023</Typography>
+      </Box>
+    </Box>
   );
 }
