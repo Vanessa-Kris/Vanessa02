@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Landing from "./pages/Landing";
 import ResponsiveAppBar from "./components/navbar";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import PageNotFound from "./pages/404";
 import Footer from "./components/footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,14 +19,37 @@ const darkTheme = createTheme({
   },
 });
 
+export default function Index() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Landing />,
+    },
+    {
+      path: "/about",
+      element: <About />,
+    },
+    {
+      path: "/projects",
+      element: <Projects />,
+    },
+    {
+      path: "*",
+      element: <PageNotFound />,
+    },
+  ]);
+
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <React.StrictMode>
+        <CssBaseline />
+        <ResponsiveAppBar />
+        <RouterProvider router={router} />
+        <Footer />
+      </React.StrictMode>
+    </ThemeProvider>
+  );
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <ThemeProvider theme={darkTheme}>
-    <CssBaseline />
-    <React.StrictMode>
-      <ResponsiveAppBar />
-      <Landing />
-      <Footer />
-    </React.StrictMode>
-  </ThemeProvider>
-);
+root.render(<Index />);

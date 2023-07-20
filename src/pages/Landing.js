@@ -40,14 +40,11 @@ export default function Landing() {
           />
         </Typography>
       </Box>
-
-      <Box sx={{ p: 15 }}>
-        About Me{" "}
-        <FontAwesomeIcon
-          icon={faArrowRight}
-          style={{ padding: 5, marginRight: 10 }}
-        />
-      </Box>
+      <a href="/about">
+        <Box sx={{ p: 15 }}>
+          About Me <FontAwesomeIcon icon={faArrowRight} />
+        </Box>
+      </a>
     </Box>
   );
 }

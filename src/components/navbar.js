@@ -55,10 +55,22 @@ export default function App() {
     <div ref={scope}>
       <nav className="menu">
         <ul>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Resume</li>
-          <li>Contact</li>
+          <a href="/about">
+            {" "}
+            <li>About</li>{" "}
+          </a>
+          <a href="/projects">
+            {" "}
+            <li>Projects</li>{" "}
+          </a>
+          <a href="/resume">
+            {" "}
+            <li>Resume</li>{" "}
+          </a>
+          <a href="/contact">
+            {" "}
+            <li>Contact</li>{" "}
+          </a>
         </ul>
       </nav>
       <button onClick={() => setIsOpen(!isOpen)}>
