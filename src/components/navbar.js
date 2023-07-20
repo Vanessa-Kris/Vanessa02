@@ -1,127 +1,95 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-// import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-//import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import "./styles.css";
+import { useState, useEffect } from "react";
+import { useAnimate, stagger } from "framer-motion";
 
-const pages = ["About", "Projects", "Contact"];
+function useMenuAnimation(isOpen) {
+  const [scope, animate] = useAnimate();
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  useEffect(() => {
+    const menuAnimations = isOpen
+      ? [
+          [
+            "nav",
+            { transform: "translateX(0%)" },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.6 },
+          ],
+          [
+            "li",
+            { transform: "scale(1)", opacity: 1, filter: "blur(0px)" },
+            { delay: stagger(0.05), at: "-0.1" },
+          ],
+        ]
+      : [
+          [
+            "li",
+            { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
+            { delay: stagger(0.05, { from: "last" }), at: "<" },
+          ],
+          ["nav", { transform: "translateX(-100%)" }, { at: "-0.1" }],
+        ];
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    animate([
+      [
+        "path.top",
+        { d: isOpen ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5" },
+        { at: "<" },
+      ],
+      ["path.middle", { opacity: isOpen ? 0 : 1 }, { at: "<" }],
+      [
+        "path.bottom",
+        { d: isOpen ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346" },
+        { at: "<" },
+      ],
+      ...menuAnimations,
+    ]);
+  }, [isOpen]);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  return scope;
+}
+
+export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const scope = useMenuAnimation(isOpen);
 
   return (
-    <AppBar position="fixed" color="transparent">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Nessa
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Nessa
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              mx: "auto",
-              justifyContent: "flex-end",
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <div ref={scope}>
+      <nav className="menu">
+        <ul>
+          <li>About</li>
+          <li>Projects</li>
+          <li>Resume</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        <svg width="23" height="18" viewBox="0 0 23 18">
+          <path
+            fill="transparent"
+            strokeWidth="3"
+            stroke="var(--background)"
+            strokeLinecap="round"
+            d={isOpen ? "M 2 2.5 L 20 2.5" : "M 3 16.5 L 17 2.5"}
+            className="top"
+          />
+          <path
+            fill="transparent"
+            strokeWidth="3"
+            stroke="var(--background)"
+            strokeLinecap="round"
+            d="M 2 9.423 L 20 9.423"
+            opacity="1"
+            className="middle"
+          />
+          <path
+            fill="transparent"
+            strokeWidth="3"
+            stroke="var(--background)"
+            strokeLinecap="round"
+            d={isOpen ? "M 2 16.346 L 20 16.346" : "M 3 2.5 L 17 16.346"}
+            className="bottom"
+          />
+        </svg>
+      </button>
+    </div>
   );
 }
-export default ResponsiveAppBar;

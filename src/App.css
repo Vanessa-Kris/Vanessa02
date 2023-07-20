@@ -1,14 +1,22 @@
 body {
-  background-image: url("./Vanessanew/1.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
+  --black: #000000;
+  --ash-black: #222;
+  --white: #fafafa;
+  --sky: #00ccff;
+  --green: #22dddd;
+  --blue: #1300ff;
+  --dusk: #6600ff;
+  --purple: #9900ff;
+  --pink: #ff0066;
+  --red: #fe0222;
+  --orange: #fd7702;
+  --yellow: #ffbb00;
+  --background: var(--white);
+  --accent: var(--pink);
+
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+* {
+  font-family: 'Courier New', Courier, monospace;
 }
+

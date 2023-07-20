@@ -16,7 +16,6 @@ export default function Footer() {
       component="Footer"
       sx={{
         p: 2,
-        color: "gray",
       }}
     >
       <Box>

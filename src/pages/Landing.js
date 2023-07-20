@@ -2,49 +2,52 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import "../App.css";
+import { TypeAnimation } from "react-type-animation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Landing() {
   return (
     <Box sx={{ height: "100%" }}>
       <Box container className="Landing">
         <Typography
-          // variant={{ sm: "h4", md: "h1" }}
+          variant="h2"
           align="center"
-          paddingTop={{ xs: 10, md: 10 }}
-          sx={{ fontSize: { md: "100px", xs: "50px" }, fontWeight: "700" }}
+          sx={{
+            fontWeight: "700",
+            paddingTop: { xs: 20, md: 18 },
+          }}
         >
-          Hey, You found{" "}
-          <span style={{ color: "#913895" }}>Vanessa Christopher</span>
+          Hi, I'm Vanessa Christopher
+        </Typography>
+        <Typography variant="h4" align="center">
+          <TypeAnimation
+            sequence={[
+              "Web Developer",
+              1000,
+              "Designer",
+              1000,
+              "Pro foodie",
+              1000,
+              "Open Source lover",
+              1000,
+              "Singer",
+              1000,
+            ]}
+            repeat={Infinity}
+            speed={10}
+            deletionSpeed={10}
+          />
         </Typography>
       </Box>
 
-      {/* About Me */}
-      {/* <Box>
-        <Typography
-          // variant={{ sm: "h4", md: "h1" }}
-          align="center"
-          paddingTop={{ xs: 10, md: 10 }}
-          sx={{ fontSize: { md: "80px", xs: "30px" }, fontWeight: "300" }}
-        >
-          About <span style={{ color: "#913895" }}>Me</span>
-        </Typography>
-        <Grid container>
-          <Grid xs={12} md={6}>
-            <Box component="img" src={mebg} sx={{ width: "100%" }}></Box>
-          </Grid>
-          <Grid xs={12} md={6}>
-            <Typography>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box> */}
+      <Box sx={{ p: 15 }}>
+        About Me{" "}
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          style={{ padding: 5, marginRight: 10 }}
+        />
+      </Box>
     </Box>
   );
 }
