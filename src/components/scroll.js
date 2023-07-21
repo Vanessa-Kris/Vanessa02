@@ -12,8 +12,6 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 
-// Note: The following code assumes that you have already imported the required dependencies and set up the necessary environment for using the framer-motion library.
-
 function ParallaxText({ children, baseVelocity = 100 }) {
   const baseX = useMotionValue(0);
   const scrollY = useScroll().scrollY;
@@ -30,7 +28,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
   const directionFactor = { current: 1 };
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    let moveBy = directionFactor.current * baseVelocity * (delta / 3000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -58,8 +56,8 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 export default function Scroll() {
   return (
     <div className="scroll">
-      <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-      <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
+      <ParallaxText baseVelocity={-5}>HTML BOOTSTRAP JAVASCRIPT</ParallaxText>
+      <ParallaxText baseVelocity={5}>CSS REACT FIGMA LINUX UBUNTU</ParallaxText>
     </div>
   );
 }

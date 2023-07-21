@@ -94,6 +94,7 @@ body {
     padding-top: 100px;
     transform: translateX(-100%);
     will-change: transform;
+    
   }
   
   ul {
@@ -206,24 +207,26 @@ body {
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
+   z-index: -1;
+
   }
   
   .parallax .scroller {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 64px;
-    display: flex;
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
+    z-index: -1;
+    background-color: var(--mine);
+    padding: 10px;
+
   }
   
   .parallax span {
-    display: block;
+    /* display: block; */
     margin-right: 30px;
   }
 
-  .scroll {
-    
-    position: relative;
-  }
+  
