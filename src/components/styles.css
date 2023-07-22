@@ -15,19 +15,13 @@ body {
     --background: var(--white);
     --accent: var(--pink);
   }
-  
- 
-  
+   
   * {
     font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace ;
     -webkit-font-smoothing: antialiased;
   }
-  
-  
-  
-  
-  
+    
   footer {
     position: fixed;
     bottom: 0;
@@ -38,7 +32,7 @@ body {
     align-items: center;
     padding: 20px;
     border-top: 1px dotted var(--mine);
-    background-color: transparent;  
+    background-color: inherit;  
   }
 
   ::-webkit-scrollbar {
@@ -93,8 +87,7 @@ body {
     background: var(--mine);
     padding-top: 100px;
     transform: translateX(-100%);
-    will-change: transform;
-    
+    will-change: transform; 
   }
   
   ul {
@@ -127,7 +120,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     top: 18px;
     left: 15px;
     width: 50px;
@@ -168,6 +161,7 @@ body {
     position: relative;
     scroll-snap-align: center;
     perspective: 500px;
+    z-index: -1;
   }
   
   section > div {
@@ -195,7 +189,7 @@ body {
     left: 0;
     right: 0;
     height: 5px;
-    background: var(--accent);
+    background: var(--mine);
     bottom: 100px;
   }
 
@@ -208,6 +202,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
    z-index: -1;
+   font-family:  "Plaster", sans-serif !important;
 
   }
   
@@ -219,7 +214,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     z-index: -1;
-    background-color: var(--mine);
+    /* background-color: var(--mine); */
     padding: 10px;
 
   }
@@ -229,4 +224,7 @@ body {
     margin-right: 30px;
   }
 
-  
+  .dim {
+    color: #2d1e654b;
+    font-weight: 900 !important;
+  }
