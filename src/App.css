@@ -14,8 +14,6 @@ body {
   --background: var(--white);
   --accent: var(--pink);
   --mine: #2d1e65;
-
-
 }
 
 * {
@@ -29,4 +27,11 @@ a {
 
 a:hover {
   color: var(--mine);
+}
+
+.Landing {
+  background-image: url(./images/4.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

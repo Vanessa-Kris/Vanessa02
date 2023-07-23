@@ -10,8 +10,8 @@ body {
     --pink: #ff0066;
     --red: #fe0222;
     --orange: #fd7702;
-    --yellow: #ffbb00;
-    --mine: #2d1e65;
+    --yellow: #ffbb00; 
+    --mine: #6247AA;
     --background: var(--white);
     --accent: var(--pink);
   }
@@ -21,7 +21,11 @@ body {
     font-family: 'Courier New', Courier, monospace ;
     -webkit-font-smoothing: antialiased;
   }
-    
+   
+  /* h1, h2, h3, h4, h5, h6 {
+    color: #E2CFEA;
+  } */
+
   footer {
     position: fixed;
     bottom: 0;
@@ -225,6 +229,6 @@ body {
   }
 
   .dim {
-    color: #2d1e654b;
+    color: #1B142E;
     font-weight: 900 !important;
   }

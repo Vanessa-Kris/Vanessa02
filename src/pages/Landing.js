@@ -8,14 +8,14 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Landing() {
   return (
-    <Box sx={{ height: "100%" }}>
-      <Box container className="Landing">
+    <Box className="Landing">
+      <Box container>
         <Typography
           variant="h2"
           align="center"
           sx={{
             fontWeight: "700",
-            paddingTop: { xs: 20, md: 18 },
+            paddingTop: 25,
           }}
         >
           Hi, I'm Vanessa Christopher
