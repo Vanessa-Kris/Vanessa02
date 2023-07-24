@@ -12,6 +12,7 @@ import PageNotFound from "./pages/404";
 import Footer from "./components/footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Particle from "./components/Particle";
 
 const darkTheme = createTheme({
   palette: {
@@ -46,6 +47,7 @@ export default function Index() {
         <ResponsiveAppBar />
         <RouterProvider router={router} />
         <Footer />
+        <Particle />
       </React.StrictMode>
     </ThemeProvider>
   );

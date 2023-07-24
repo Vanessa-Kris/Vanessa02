@@ -11,7 +11,7 @@ body {
     --red: #fe0222;
     --orange: #fd7702;
     --yellow: #ffbb00; 
-    --mine: #6247AA;
+    --mine: #FF5964;
     --background: var(--white);
     --accent: var(--pink);
   }
@@ -89,7 +89,7 @@ body {
     bottom: 0;
     width: 400px;
     background: var(--mine);
-    padding-top: 100px;
+    padding-top: 30px;
     transform: translateX(-100%);
     will-change: transform; 
   }

@@ -55,6 +55,10 @@ export default function App() {
     <div ref={scope}>
       <nav className="menu">
         <ul>
+          <a href="/">
+            {" "}
+            <li>Home</li>{" "}
+          </a>
           <a href="/about">
             {" "}
             <li>About</li>{" "}

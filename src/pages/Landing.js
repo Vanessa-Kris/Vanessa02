@@ -15,7 +15,7 @@ export default function Landing() {
           align="center"
           sx={{
             fontWeight: "700",
-            paddingTop: 25,
+            paddingTop: { xs: 17, md: 25 },
           }}
         >
           Hi, I'm Vanessa Christopher

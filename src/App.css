@@ -28,10 +28,3 @@ a {
 a:hover {
   color: var(--mine);
 }
-
-.Landing {
-  background-image: url(./images/4.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
