@@ -9,11 +9,11 @@ import ResponsiveAppBar from "./components/navbar";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import PageNotFound from "./pages/404";
+import Contact from "./pages/Contact";
 import Footer from "./components/footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Particle from "./components/Particle";
-import { Contact } from "./pages/Contact";
 
 const darkTheme = createTheme({
   palette: {

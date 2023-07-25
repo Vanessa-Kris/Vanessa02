@@ -1,117 +1,77 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
   faInstagram,
   faFacebook,
-  faGithub,
-  faPinterest,
-  faTiktok,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import "../components/styles.css";
 
-export const Contact = () => {
+const socialMediaData = [
+  {
+    name: "Facebook",
+    icon: faFacebook,
+    url: "https://www.facebook.com/your-profile",
+  },
+  { name: "Twitter", icon: faTwitter, url: "https://twitter.com/your-profile" },
+  {
+    name: "LinkedIn",
+    icon: faLinkedin,
+    url: "https://www.linkedin.com/in/your-profile",
+  },
+  {
+    name: "Instagram",
+    icon: faInstagram,
+    url: "https://www.instagram.com/in/your-profile",
+  },
+];
+
+const Contact = () => {
   return (
-    <Box sx={{ p: 15 }} align="center" className="contact">
-      <h3>Let's get connected </h3>
-      <FontAwesomeIcon
-        icon={faInstagram}
-        beat
-        style={{
-          padding: 25,
-          fontSize: 50,
-          color: "#C13584",
-          zIndex: -2,
-        }}
-      />
-      <FontAwesomeIcon
-        icon={faFacebook}
-        beat
-        style={{ padding: 25, fontSize: 50, color: "#1674EA" }}
-      />
+    <div style={styles.container}>
+      <h2>Contact Me</h2>
+      <p>Email: vanessaigwe1@gmail.com</p>
+      <p>Phone: +237 6 53 07 23 08</p>
 
-      <FontAwesomeIcon
-        icon={faEnvelope}
-        beat
-        style={{
-          padding: 25,
-          fontSize: 50,
-          color: "green",
-        }}
-      />
-
-      <FontAwesomeIcon
-        icon={faGithub}
-        beat
-        style={{ padding: 25, fontSize: 50 }}
-      />
-
-      <FontAwesomeIcon
-        icon={faPinterest}
-        beat
-        style={{ padding: 25, fontSize: 50, color: "red" }}
-      />
-
-      <FontAwesomeIcon
-        icon={faTiktok}
-        beat
-        style={{
-          padding: 25,
-          fontSize: 50,
-          color: " #111111;",
-          filter:
-            "drop-shadow(2px 0px 0px #FD3E3E) drop-shadow(-2px -2px 0px #4DE8F4)",
-        }}
-      />
-
-      <FontAwesomeIcon
-        icon={faTwitter}
-        beat
-        style={{ padding: 25, fontSize: 50, color: "#1C96E9" }}
-      />
-
-      {/* 
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <FontAwesomeIcon
-            icon={faInstagram}
-            beat
-            style={{ padding: 5, fontSize: 100 }}
-          />
-        </Grid>
-        <Grid item xs={10}>
-          faInstagram
-        </Grid>
-      </Grid>
-     
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <FontAwesomeIcon
-            icon={faFacebook}
-            beat
-            style={{ padding: 5, fontSize: 100 }}
-          />
-        </Grid>
-        <Grid item xs={10}>
-          FaceBook
-        </Grid>
-      </Grid>
-     
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <FontAwesomeIcon
-            icon={faTwitter}
-            beat
-            style={{ padding: 5, fontSize: 100 }}
-          />
-        </Grid>
-        <Grid item xs={10}>
-          Twitter
-        </Grid>
-      </Grid> */}
-    </Box>
+      <h3>Follow Me On Social Media</h3>
+      <div className="social-icons" style={styles.socialIcons}>
+        {socialMediaData.map(({ name, icon, url }) => (
+          <a
+            key={name}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.iconLink}
+          >
+            <FontAwesomeIcon beat icon={icon} size="2x" />
+          </a>
+        ))}
+      </div>
+    </div>
   );
 };
+
+const styles = {
+  container: {
+    textAlign: "center",
+    maxWidth: "400px",
+    margin: "0 auto",
+    padding: "20px",
+    border: "1px solid #FF5964",
+    borderRadius: "5px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    marginTop: "120px",
+  },
+  socialIcons: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    marginTop: "20px",
+  },
+  iconLink: {
+    color: "#FF5964",
+    textDecoration: "none",
+    transition: "color 0.3s ease-in-out",
+  },
+};
+
+export default Contact;
