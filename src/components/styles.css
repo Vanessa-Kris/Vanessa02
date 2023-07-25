@@ -178,7 +178,7 @@ body {
     overflow: hidden;
   }
   
-  img {
+  .proj {
     position: absolute;
     top: 0;
     left: 0;
@@ -231,4 +231,12 @@ body {
   .dim {
     color: #1B142E;
     font-weight: 900 !important;
+  }
+
+  .pnf {
+    background-image: url(../images/pnf.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* z-index: -1; */
   }

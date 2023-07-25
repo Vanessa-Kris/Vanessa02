@@ -59,16 +59,11 @@ function Image({ id }) {
   return (
     <section>
       <div ref={ref}>
-        <img src={selectedImage} alt="Projects" />
+        <a href={demoLink}>
+          <img className="proj" src={selectedImage} alt="Projects" />
+        </a>
       </div>
       <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
-
-      <a href={demoLink} className="button">
-        View Demo
-      </a>
-      <a href={sourceLink} className="button">
-        View Source
-      </a>
     </section>
   );
 }
@@ -84,8 +79,9 @@ export default function Projects() {
   return (
     <>
       {[1, 2, 3, 4, 5, 6].map((image) => (
-        <Image id={image} key={image} />
+        <Image id={image} key={image} href={URL} />
       ))}
+
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );
