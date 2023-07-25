@@ -240,3 +240,7 @@ body {
     height: 100vh;
     /* z-index: -1; */
   }
+
+  #fa-solid, #sfa-brands  {
+    z-index: -1 !important;
+  }

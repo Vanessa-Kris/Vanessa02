@@ -13,6 +13,7 @@ import Footer from "./components/footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Particle from "./components/Particle";
+import { Contact } from "./pages/Contact";
 
 const darkTheme = createTheme({
   palette: {
@@ -33,6 +34,10 @@ export default function Index() {
     {
       path: "/projects",
       element: <Projects />,
+    },
+    {
+      path: "/contact",
+      element: <Contact />,
     },
     {
       path: "*",
