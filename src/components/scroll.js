@@ -56,8 +56,12 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 export default function Scroll() {
   return (
     <div className="scroll">
-      <ParallaxText baseVelocity={-5}>HTML BOOTSTRAP JAVASCRIPT</ParallaxText>
-      <ParallaxText baseVelocity={5}>CSS REACT FIGMA LINUX UBUNTU</ParallaxText>
+      <ParallaxText baseVelocity={-5}>
+        HTML BOOTSTRAP JAVASCRIPT FRAMER MOTION
+      </ParallaxText>
+      <ParallaxText baseVelocity={5}>
+        CSS REACT FIGMA LINUX UBUNTU MUI
+      </ParallaxText>
     </div>
   );
 }

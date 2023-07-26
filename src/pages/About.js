@@ -1,32 +1,53 @@
 import React from "react";
 import Scroll from "../components/scroll";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
     <Box>
-      <Box sx={{ p: 5, pt: 15 }}>
-        <Typography variant="h3" className="dim">
+      <Box sx={{ p: 5, pt: 10 }}>
+        <Typography variant="h2" className="dim" sx={{ fontWeight: 900 }}>
           About Me
         </Typography>
         <Typography sx={{ color: "#fafafa" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          I’m Vanessa Christopher Igwe, a Nigerian residing in Cameroon. As a
+          full-time web developer, I love building awesome projects and
+          contributing to open-source projects.
+        </Typography>
+        <Typography sx={{ py: 5 }}>
+          But that’s not all – I’m also exploring the world of design, always
+          wanting to learn and grow in this fascinating field In addition to my
+          digital endeavors, I love all things art-related. Whether I'm
+          performing as a singer, expressing my culinary skills as a chef, or
+          expressing my creativity through makeup, I love expressing myself
+          through different spaces. That's why people often call me
+          "multi-talented."
+        </Typography>
+
+        <Typography sx={{ pb: 5 }}>
+          One of the strongest fits for me is my cooperation with others. I
+          enjoy being part of a team, and my friendly attitude has impressed
+          many colleagues. If we get a chance to work together, I’m sure we’ll
+          stay swimming.
+        </Typography>
+
+        <Typography>
+          Currently, I am looking for exciting opportunities to develop new
+          projects and collaborate with like-minded individuals. Let’s start
+          this journey of creativity and innovation together! Feel free – I’m
+          looking forward to making new friends and bringing great ideas to
+          life.
         </Typography>
       </Box>
-      <Typography sx={{ px: 5, py: 1 }} variant="h3" className="dim">
+      <Typography
+        sx={{ px: 5, py: 1, fontWeight: 900 }}
+        variant="h2"
+        className="dim"
+      >
         Skills
       </Typography>
-      {/* <Box className="dim" sx={{ pt: 10, px: 5, fontSize: "25px" }}>
-        Skills:
-      </Box> */}
       <Scroll />
 
       <Box sx={{ p: 5, pt: 15 }}>
@@ -35,7 +56,17 @@ export default function About() {
         </Typography>
         <Typography>
           For the love of food, pictures and nature, I'd love to share my world
-          through photos.
+          through photos. But! you'll have to visit my{" "}
+          <a href="https://facebook.com/vanessa.igwe.35" rel="noreferrer">
+            facebook
+          </a>{" "}
+          or{" "}
+          <a
+            href="https://www.instagram.com/vanessa_christopher_i"
+            rel="noreferrer"
+          >
+            instagram
+          </a>
         </Typography>
       </Box>
 

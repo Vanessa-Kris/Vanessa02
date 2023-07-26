@@ -1,5 +1,7 @@
 import React from "react";
 import "../components/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import pro1 from "../images/1.png";
@@ -8,6 +10,8 @@ import pro3 from "../images/3.png";
 import pro4 from "../images/4.png";
 import pro5 from "../images/5.png";
 import pro6 from "../images/6.png";
+import { Box } from "@mui/system";
+import { Button } from "@mui/material";
 
 function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -58,12 +62,25 @@ function Image({ id }) {
 
   return (
     <section>
-      <div ref={ref}>
+      <div className="sectiondiv" ref={ref}>
         <a href={demoLink}>
           <img className="proj" src={selectedImage} alt="Projects" />
         </a>
       </div>
       <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
+      <br />
+      <Box>
+        <Button variant="outlined">
+          <a href={demoLink} target="_blank" rel="noopener noreferrer">
+            Demo Link
+          </a>
+        </Button>
+        <Button variant="outlined">
+          <a href={sourceLink} target="_blank" rel="noopener noreferrer">
+            Source Link
+          </a>
+        </Button>
+      </Box>
     </section>
   );
 }
@@ -79,10 +96,16 @@ export default function Projects() {
   return (
     <>
       {[1, 2, 3, 4, 5, 6].map((image) => (
-        <Image id={image} key={image} href={URL} />
+        <Image id={image} key={image} />
       ))}
 
       <motion.div className="progress" style={{ scaleX }} />
+
+      <a href="/resume">
+        <Box sx={{ p: 15 }}>
+          Resume <FontAwesomeIcon icon={faArrowRight} />
+        </Box>
+      </a>
     </>
   );
 }

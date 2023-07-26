@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Landing from "./pages/Landing";
@@ -10,6 +9,8 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import PageNotFound from "./pages/404";
 import Contact from "./pages/Contact";
+import Resume from "./pages/Resume";
+import Gallery from "./pages/Gallery";
 import Footer from "./components/footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -38,6 +39,14 @@ export default function Index() {
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "/resume",
+      element: <Resume />,
+    },
+    {
+      path: "/gallery",
+      element: <Gallery />,
     },
     {
       path: "*",
