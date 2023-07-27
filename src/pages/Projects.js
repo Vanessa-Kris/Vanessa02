@@ -1,105 +1,454 @@
-import React from "react";
+import { Box, Button, Grid } from "@mui/material";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import "../components/styles.css";
+import img1 from "../image/1.png";
+import img2 from "../image/2.png";
+import img3 from "../image/3.png";
+import img4 from "../image/4.png";
+import img5 from "../image/5.png";
+import img6 from "../image/6.png";
+import img7 from "../image/7.png";
+import img8 from "../image/8.png";
+import img9 from "../image/9.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import pro1 from "../images/1.png";
-import pro2 from "../images/2.png";
-import pro3 from "../images/3.png";
-import pro4 from "../images/4.png";
-import pro5 from "../images/5.png";
-import pro6 from "../images/6.png";
-import { Box } from "@mui/system";
-import { Button } from "@mui/material";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowRight,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 
-function useParallax(value, distance) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
-
-function Image({ id }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
-
-  let selectedImage, demoLink, sourceLink;
-  switch (id) {
-    case 1:
-      selectedImage = pro1;
-      demoLink = `https://example.com1`;
-      sourceLink = `https://example.com1`;
-      break;
-    case 2:
-      selectedImage = pro2;
-      demoLink = `https://example.com2`;
-      sourceLink = `https://example.com2`;
-      break;
-    case 3:
-      selectedImage = pro3;
-      demoLink = `https://example.com3`;
-      sourceLink = `https://example.com3`;
-      break;
-    case 4:
-      selectedImage = pro4;
-      demoLink = `https://example.com4`;
-      sourceLink = `https://example.com4`;
-      break;
-    case 5:
-      selectedImage = pro5;
-      demoLink = `https://example.com5`;
-      sourceLink = `https://example.com5`;
-      break;
-    case 6:
-      selectedImage = pro6;
-      demoLink = `https://example.com6`;
-      sourceLink = `https://example.com6`;
-      break;
-    default:
-      selectedImage = pro1;
-      demoLink = `https://example.com`;
-      sourceLink = `https://example.com`;
-  }
-
-  return (
-    <section>
-      <div className="sectiondiv" ref={ref}>
-        <a href={demoLink}>
-          <img className="proj" src={selectedImage} alt="Projects" />
-        </a>
-      </div>
-      <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
-      <br />
-      <Box>
-        <Button variant="outlined">
-          <a href={demoLink} target="_blank" rel="noopener noreferrer">
-            Demo Link
-          </a>
-        </Button>
-        <Button variant="outlined">
-          <a href={sourceLink} target="_blank" rel="noopener noreferrer">
-            Source Link
-          </a>
-        </Button>
-      </Box>
-    </section>
-  );
-}
+const projVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export default function Projects() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
   return (
     <>
-      {[1, 2, 3, 4, 5, 6].map((image) => (
-        <Image id={image} key={image} />
-      ))}
+      <Box sx={{ p: 5, pt: 10, width: "100%", zIndex: -5 }} align="center">
+        <Grid container sx={{ maxWidth: "100%" }} spacing={2}>
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "inline-block",
+                  bgclor: "#1B142E",
+                }}
+              >
+                <img
+                  src={img1}
+                  alt="project 1"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon
+                      size="big"
+                      icon={faArrowUpRightFromSquare}
+                    />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img2}
+                  alt="project 2"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+        </Grid>
 
-      <motion.div className="progress" style={{ scaleX }} />
+        {/*  */}
+
+        <Grid container sx={{ maxWidth: "100%" }} spacing={2}>
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "inline-block",
+                }}
+              >
+                <img
+                  src={img4}
+                  alt="project 3"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img5}
+                  alt="project 4"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+        </Grid>
+
+        {/*  */}
+
+        <Grid container sx={{ maxWidth: "100%" }} spacing={2}>
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img3}
+                  alt="project 5"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img6}
+                  alt="project 6"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+        </Grid>
+
+        {/*  */}
+
+        <Grid container sx={{ maxWidth: "100%" }} spacing={2}>
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img7}
+                  alt="project 7"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img8}
+                  alt="project 8"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+
+          <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={controls}
+              variants={projVariants}
+            >
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={img9}
+                  alt="project 9"
+                  className="projimg"
+                  style={{ width: "100%" }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    gap: "10px",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ bgcolor: "#000" }}
+                    size="small"
+                  >
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Button>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+          {/*  */}
+        </Grid>
+      </Box>
 
       <a href="/resume">
         <Box sx={{ p: 15 }}>

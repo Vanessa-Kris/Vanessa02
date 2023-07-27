@@ -1,6 +1,6 @@
 body {
     --black: #000000;
-    --ash-black: #222;
+    --ash-black: #3b3b3b;
     --white: #fafafa;
     --sky: #00ccff;
     --green: #22dddd;
@@ -27,17 +27,15 @@ body {
   } */
 
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
     border-top: 1px dotted var(--mine);
-    background-color: inherit;  
-  }
+    background-color: inherit;
+    margin-top: auto; 
+    /* position: sticky; */
+}
 
   ::-webkit-scrollbar {
     height: 5px;
@@ -178,16 +176,27 @@ body {
     overflow: hidden;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     .sectiondiv {
       width: 280px;
       height: 300px;
       position: relative;
       overflow: hidden;
-
     }
+    .projimg {
+      /* height: 100%; */
+      width: 300px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    
   }
   
+  .projimg {
+    height: 100%;
+    width: 100%;
+  }
+
   .proj {
     position: absolute;
     top: 0;
@@ -251,10 +260,28 @@ body {
     /* z-index: -1; */
   }
 
-  .instagram {
-    background: #f09433; 
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-  }
+  
+    .contact {
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid rgb(255, 89, 100);
+     border-radius: 5px;
+     /* box-shadow: 0 2px 4px rgba(; ; ; 0.1);  */
+      margin-top: 120px;
+    }
+
+    .socialIcons {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+    }
+
+    .iconLink {
+      color: #FF5964;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+ 
+  

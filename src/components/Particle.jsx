@@ -51,7 +51,7 @@ function Particle() {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#3b3b3b",
           },
           links: {
             color: "#ffffff",
@@ -67,13 +67,13 @@ function Particle() {
               default: "bounce",
             },
             random: false,
-            speed: 6,
+            speed: 4,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1200,
             },
             value: 80,
           },

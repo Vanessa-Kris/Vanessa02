@@ -18,7 +18,7 @@ export default function Footer() {
         p: 2,
       }}
     >
-      <Box>
+      {/* <Box>
         <FontAwesomeIcon
           icon={faFacebook}
           style={{ padding: 5, marginRight: 10 }}
@@ -31,10 +31,10 @@ export default function Footer() {
           icon={faTwitter}
           style={{ padding: 5, marginRight: 10 }}
         />
-      </Box>
+      </Box> */}
 
       <Box>
-        <Typography>Vanessa Christopher 2023</Typography>
+        <Typography>© Vanessa Christopher 2023</Typography>
       </Box>
     </Box>
   );
