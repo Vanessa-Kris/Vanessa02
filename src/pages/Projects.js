@@ -38,7 +38,11 @@ export default function Projects() {
   }, [controls, inView]);
   return (
     <>
-      <Box sx={{ p: 5, pt: 10, width: "100%", zIndex: -5 }} align="center">
+      <Box
+        sx={{ p: 5, pt: 10, width: "100%" }}
+        align="center"
+        className="project"
+      >
         <Grid container sx={{ maxWidth: "100%" }} spacing={2}>
           <Grid item xs={12} md={6} sm={12} sx={{ p: 3 }}>
             <motion.div

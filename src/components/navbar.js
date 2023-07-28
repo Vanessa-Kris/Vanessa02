@@ -42,7 +42,7 @@ function useMenuAnimation(isOpen) {
       ],
       ...menuAnimations,
     ]);
-  }, [isOpen]);
+  }, [isOpen, animate]);
 
   return scope;
 }
@@ -52,7 +52,7 @@ export default function App() {
   const scope = useMenuAnimation(isOpen);
 
   return (
-    <div ref={scope}>
+    <div ref={scope} className="menucon">
       <nav className="menu">
         <ul>
           <a href="/">
@@ -77,7 +77,7 @@ export default function App() {
           </a>
         </ul>
       </nav>
-      <button onClick={() => setIsOpen(!isOpen)}>
+      <button className="navbutton" onClick={() => setIsOpen(!isOpen)}>
         <svg width="23" height="18" viewBox="0 0 23 18">
           <path
             fill="transparent"

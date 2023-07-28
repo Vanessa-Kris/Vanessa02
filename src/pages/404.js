@@ -1,9 +1,6 @@
 import React from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import pnf from "../images/anime.png";
+import { Box } from "@mui/material";
 import "../components/styles.css";
-import { fontWeight } from "@mui/system";
 
 export default function PageNotFound() {
   return (
